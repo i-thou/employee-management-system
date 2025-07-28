@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import HeaderNavigation from "../../../components/admin/HeaderNavigation";
+import SideNavigation from "../../../components/admin/SideNavigation";
 // import "./globals.css";
 
 const geistSans = Geist({
@@ -24,10 +26,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+              <div>
+                  <div><HeaderNavigation /></div>
+              </div>
+               <div>
+                    <div className="grid grid-cols-6">
+                      <div className="col-span-1">
+
+                        <SideNavigation />
+                      </div>
+                        <div className="px-2 @3xl:px-10 @3xl:col-span-5 col-span-5">
+                            {children}
+                        </div>
+                    </div>
+                  </div>
       </body>   
     </html>
   );
